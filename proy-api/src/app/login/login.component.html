@@ -1,0 +1,22 @@
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Por favor ingresa tu usuario!">
+        <nz-input-group>
+          <input type="text" nz-input formControlName="userName" placeholder=" Usuario" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control nzErrorTip="Por favor ingresa tu contraseña!">
+        <nz-input-group>
+          <input  type="password" nz-input formControlName="password" placeholder=" Contraseña" />
+        </nz-input-group>
+      </nz-form-control>
+    </nz-form-item>
+    <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Inicia sesión</button>
+    <a>Registrate!</a>
+  </form>
+<div class="img-form">
+
+</div>
+
