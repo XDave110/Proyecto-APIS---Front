@@ -15,13 +15,23 @@ import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { SignupComponent } from './signup/signup.component';
+import { LayoutComponent } from './layout/layout.component';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
+import { NzBreadCrumbModule } from 'ng-zorro-antd/breadcrumb'
+import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { LibroComponent } from './libro/libro.component';
+import { ListaLibroComponent } from './lista-libro/lista-libro.component'
+import { NzCardModule } from 'ng-zorro-antd/card';
 registerLocaleData(en);
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    LayoutComponent,
+    LibroComponent,
+    ListaLibroComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +41,11 @@ registerLocaleData(en);
     NzButtonModule,
     NzFormModule,
     ReactiveFormsModule,
-    NzIconModule
+    NzIconModule,
+    NzLayoutModule,
+    NzBreadCrumbModule,
+    NzMenuModule,
+    NzCardModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
