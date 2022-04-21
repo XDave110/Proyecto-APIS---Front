@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -9,7 +10,7 @@ export class LayoutComponent implements OnInit {
 
   number: number;
 
-  constructor() { 
+  constructor(public router: Router) { 
     this.number = 0;
   }
 

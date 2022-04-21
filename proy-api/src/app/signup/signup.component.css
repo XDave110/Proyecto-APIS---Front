@@ -2,10 +2,14 @@
     max-width: 600px;
   }
 
-  .phone-select {
-    width: 70px;
-  }
-
   .register-are {
     margin-bottom: 8px;
+  }
+
+  .btnIniciar {
+    margin-right: 2%;
+  }
+
+  input {
+    width: 210px;
   }
