@@ -8,6 +8,7 @@ import { Libro } from './../libro/libro.model';
 })
 
 export class ListaLibroComponent implements OnInit {
+  public pagina: number;
   libros: Libro[];
 
   constructor() {

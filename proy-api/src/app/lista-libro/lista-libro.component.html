@@ -1,3 +1,7 @@
-<ul *ngFor="let libro of libros">
+<ul *ngFor="let libro of libros | paginate: { itemsPerPage: 10, currentPage: pagina }">
     <app-libro [libro]="libro"></app-libro>
 </ul>
+<div class="pagination">
+    <pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior"
+nextLabel="Siguiente"></pagination-controls>
+</div>    

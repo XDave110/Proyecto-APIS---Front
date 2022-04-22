@@ -7,7 +7,7 @@ import { CartService } from '../service/cart.service';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit {
-
+  public pagina: number;
   public libros: any;
   
   constructor(private cartService: CartService) { 
