@@ -24,6 +24,9 @@ import { ListaLibroComponent } from './lista-libro/lista-libro.component'
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { CartComponent } from './cart/cart.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NzDividerModule } from 'ng-zorro-antd/divider';
+
 registerLocaleData(en);
 
 @NgModule({
@@ -49,7 +52,9 @@ registerLocaleData(en);
     NzBreadCrumbModule,
     NzMenuModule,
     NzCardModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    NzGridModule,
+    NzDividerModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

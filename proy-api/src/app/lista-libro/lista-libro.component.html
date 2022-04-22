@@ -1,6 +1,11 @@
-<ul *ngFor="let libro of libros | paginate: { itemsPerPage: 10, currentPage: pagina }">
-    <app-libro [libro]="libro"></app-libro>
-</ul>
+<div class="columnas"  nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <ul *ngFor="let libro of libros | paginate: { itemsPerPage: 12, currentPage: pagina }">
+        <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"></div><app-libro [libro]="libro"></app-libro></div>
+        
+    </ul>
+</div>
+
+
 <div class="pagination">
     <pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior"
 nextLabel="Siguiente"></pagination-controls>
