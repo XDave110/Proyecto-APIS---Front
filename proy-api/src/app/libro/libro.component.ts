@@ -10,21 +10,16 @@ import { Libro } from './libro.model';
 export class LibroComponent implements OnInit {
 
   @Input() libro: Libro;
-  @Input() cantidad: number;
 
   constructor(private cartService: CartService) { 
   }
 
   ngOnInit(): void {
-    this.imprimirCantidad();
+    
   }
 
   devolverDescripcion(): string {
     return this.libro.autor + "\n" + "$" + this.libro.precio;
-  }
-
-  imprimirCantidad(): void {
-    console.log(this.cantidad);
   }
 
   agregarAlCarro(libro: any) {

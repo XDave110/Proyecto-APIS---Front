@@ -24,6 +24,7 @@ export class CartService {
     this.cartListaLibros.push(libro);
     this.listaLibros.next(this.cartListaLibros);
     this.obtenerPrecioTotal();
+    console.log(libro);
   }
 
   obtenerPrecioTotal() {

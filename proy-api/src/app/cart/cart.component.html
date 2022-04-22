@@ -1,4 +1,4 @@
-<ng-container *ngIf="true">
+<ng-container *ngIf="!estaVacioElCarro()">
     <div class="card-table">
         <div class="cart-book">
             <table class="table table-responsive">
@@ -14,17 +14,17 @@
                         <th>Acción</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let libro of libros">
                     <tr>
-                        <td>Alguna portada</td>
-                        <td>12345</td>
-                        <td>Harry Potter</td>
-                        <td>Libro de Harry Potter</td>
-                        <td>39</td>
+                        <td><img class="portada" src="{{libro.portada}}" alt=""></td>
+                        <td>{{libro.isbn}}</td>
+                        <td>{{libro.nombre}}</td>
+                        <td>{{libro.descripcion}}</td>
+                        <td>{{libro.precio}}</td>
                         <td>1</td>
                         <td>39</td>
                         <td>
-                            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            <button (click)="eliminarLibroDelCarro(libro)"    class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
                     </tr>
                 </tbody>
@@ -34,7 +34,7 @@
 </ng-container>
 
 
-<ng-container *ngIf="false"> 
+<ng-container *ngIf="estaVacioElCarro()"> 
     <div class="container">
         <div class="card">
             <h5 class="card-title">Mi carrito</h5>
