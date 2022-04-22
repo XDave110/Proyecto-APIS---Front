@@ -22,6 +22,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { LibroComponent } from './libro/libro.component';
 import { ListaLibroComponent } from './lista-libro/lista-libro.component'
 import { NzCardModule } from 'ng-zorro-antd/card';
+import { CartComponent } from './cart/cart.component';
 registerLocaleData(en);
 
 @NgModule({
@@ -31,7 +32,8 @@ registerLocaleData(en);
     SignupComponent,
     LayoutComponent,
     LibroComponent,
-    ListaLibroComponent
+    ListaLibroComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

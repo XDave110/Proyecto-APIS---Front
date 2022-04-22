@@ -1,5 +1,6 @@
 <nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
     <nz-card-meta nzTitle="{{ libro.nombre }}" nzDescription=" {{ devolverDescripcion() }}"></nz-card-meta>
+    <button class="btn btn-primary" (click)="agregarAlCarro(libro)" >Agregar al carro</button>
   </nz-card>
   <ng-template #coverTemplate>
     <img alt="example" src="{{ libro.portada }}" />

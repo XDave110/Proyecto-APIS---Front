@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ListaLibroComponent } from './lista-libro/lista-libro.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { LayoutComponent } from './layout/layout.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {
@@ -22,6 +22,10 @@ const routes: Routes = [
     path:'', 
     redirectTo:'/catalogo', 
     pathMatch:'full'
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 

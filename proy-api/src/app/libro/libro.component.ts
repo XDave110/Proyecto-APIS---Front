@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CartService } from '../service/cart.service';
 import { Libro } from './libro.model';
 
 @Component({
@@ -11,7 +12,7 @@ export class LibroComponent implements OnInit {
   @Input() libro: Libro;
   @Input() cantidad: number;
 
-  constructor() { 
+  constructor(private cartService: CartService) { 
   }
 
   ngOnInit(): void {
@@ -24,6 +25,10 @@ export class LibroComponent implements OnInit {
 
   imprimirCantidad(): void {
     console.log(this.cantidad);
+  }
+
+  agregarAlCarro(libro: any) {
+    this.cartService.agregarAlCarro(libro);
   }
 
 }

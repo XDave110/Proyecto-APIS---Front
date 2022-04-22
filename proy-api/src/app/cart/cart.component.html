@@ -1,0 +1,49 @@
+<ng-container *ngIf="true">
+    <div class="card-table">
+        <div class="cart-book">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Portada</th>
+                        <th>ISBN</th>
+                        <th>Titulo</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Alguna portada</td>
+                        <td>12345</td>
+                        <td>Harry Potter</td>
+                        <td>Libro de Harry Potter</td>
+                        <td>39</td>
+                        <td>1</td>
+                        <td>39</td>
+                        <td>
+                            <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</ng-container>
+
+
+<ng-container *ngIf="false"> 
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">Mi carrito</h5>
+        </div>
+        <div class="center">
+            <img src="http://vicworldwide.com/img/download.png" alt="">
+            <h4>Tu carrito está vacio!</h4>
+            <h6>Agrega libros a tu estante!</h6>
+            <button [routerLink]="['/catalogo']" class="btn btn-primary">Compra ahora</button>
+        </div>
+    </div>
+</ng-container>
