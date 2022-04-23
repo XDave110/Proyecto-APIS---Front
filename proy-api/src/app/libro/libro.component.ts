@@ -23,7 +23,8 @@ export class LibroComponent implements OnInit {
   }
 
   agregarAlCarro(libro: any) {
-    this.cartService.agregarAlCarro(libro);
+    this.cartService.verificarSiExiste(libro);
   }
+
 
 }

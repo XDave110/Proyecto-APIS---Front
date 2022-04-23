@@ -36,3 +36,12 @@ h4, h6 {
     justify-content: center;
   }
 
+
+  .default-value {
+      display: hidden;
+  }
+
+  .subtotal {
+      font-size: 1.5rem;
+      font-weight: bold;
+  }

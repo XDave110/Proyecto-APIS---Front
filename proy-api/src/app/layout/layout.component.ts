@@ -10,14 +10,14 @@ import { CartService } from '../service/cart.service';
 export class LayoutComponent implements OnInit {
 
   number: number = 0;
-
+  libros: [];
   constructor(public router: Router, private cartService: CartService) { 
   }
 
   ngOnInit(): void {
-    this.cartService.obtenerLibros().subscribe(res => {
-      this.number = res.length;
-    });
+    this.cartService.cuenta.subscribe( cuenta => {
+      this.number = cuenta;
+    })
   }
 
 }

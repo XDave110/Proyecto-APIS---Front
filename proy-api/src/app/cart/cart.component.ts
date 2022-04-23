@@ -21,12 +21,29 @@ export class CartComponent implements OnInit {
 
   eliminarLibroDelCarro(libro: any) {
     this.cartService.borrarLibroDeLista(libro);
+    this.cartService.obtenerCantidadLibros();
   }
 
   estaVacioElCarro() {
     return this.libros.length === 0;
   }
 
+  obtenerCantidad(tag: HTMLSelectElement, libro: any) {
+    libro.cantidad = +tag.value;
+    this.cartService.obtenerCantidadLibros();
+  }
+
+  vaciarCarro() {
+    this.cartService.eliminarTodo();
+    this.cartService.obtenerCantidadLibros();
+  }
+
+  obtenerTotal(): number {
+    return this.cartService.obtenerPrecioTotal();
+  }
 
 
+  realizarPago() {
+    this.cartService.realizarPago();
+  }
 }
