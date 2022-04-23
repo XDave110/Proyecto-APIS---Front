@@ -14,7 +14,7 @@
                         <th>Acción</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let libro of libros">
+                <tbody *ngFor="let libro of libros  | paginate: { itemsPerPage: 10, currentPage: pagina }">
                     <tr>
                         <td><img class="portada" src="{{libro.portada}}" alt=""></td>
                         <td>{{libro.isbn}}</td>
@@ -31,7 +31,12 @@
             </table>
         </div>
     </div>
+    <div class="pagination">
+        <pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior"
+    nextLabel="Siguiente"></pagination-controls>
+    </div>    
 </ng-container>
+
 
 
 <ng-container *ngIf="estaVacioElCarro()"> 
