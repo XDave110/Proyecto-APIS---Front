@@ -23,6 +23,7 @@ import { LibroComponent } from './libro/libro.component';
 import { ListaLibroComponent } from './lista-libro/lista-libro.component'
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { CartComponent } from './cart/cart.component';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 registerLocaleData(en);
 
 @NgModule({
@@ -47,7 +48,8 @@ registerLocaleData(en);
     NzLayoutModule,
     NzBreadCrumbModule,
     NzMenuModule,
-    NzCardModule
+    NzCardModule,
+    NzGridModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
