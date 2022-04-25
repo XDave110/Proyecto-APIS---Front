@@ -27,6 +27,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { FormsModule } from '@angular/forms';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 registerLocaleData(en);
 
@@ -38,7 +40,8 @@ registerLocaleData(en);
     LayoutComponent,
     LibroComponent,
     ListaLibroComponent,
-    CartComponent
+    CartComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
@@ -56,7 +59,8 @@ registerLocaleData(en);
     NgxPaginationModule,
     NzGridModule,
     NzDividerModule,
-    NzModalModule
+    NzModalModule,
+    FormsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

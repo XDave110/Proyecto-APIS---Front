@@ -6,3 +6,7 @@
   .columnas {
     justify-content: space-evenly;
   }
+
+  .container {
+    margin-bottom: 3%;
+  }
