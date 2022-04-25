@@ -10,6 +10,7 @@ import { Libro } from './libro.model';
 export class LibroComponent implements OnInit {
 
   @Input() libro: Libro;
+  isVisible = false;
 
   constructor(private cartService: CartService) { 
   }
@@ -24,6 +25,20 @@ export class LibroComponent implements OnInit {
 
   agregarAlCarro(libro: any) {
     this.cartService.verificarSiExiste(libro);
+  }
+
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  handleOk(): void {
+    console.log('Button ok clicked!');
+    this.isVisible = false;
+  }
+
+  handleCancel(): void {
+    console.log('Button cancel clicked!');
+    this.isVisible = false;
   }
 
 

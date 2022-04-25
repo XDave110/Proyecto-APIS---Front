@@ -1,7 +1,16 @@
-<nz-card nzHoverable style="width:240px" [nzCover]="coverTemplate">
+<nz-card  nzHoverable style="width:240px" [nzCover]="coverTemplate">
     <nz-card-meta nzTitle="{{ libro.nombre }}" nzDescription=" {{ devolverDescripcion() }}"></nz-card-meta>
     <button class="btn btn-primary" (click)="agregarAlCarro(libro)" >Agregar al carro</button>
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="Información" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent>
+        <img class="imagenportada" src="{{ libro.portada }}" alt="">
+        <p> {{ libro.nombre }}</p>
+        <p>{{ libro.autor }}</p>
+        <p>{{ libro.descripcion }}</p>
+        <p>{{ libro.isbn}}</p>
+      </ng-container>
+    </nz-modal>
   </nz-card>
   <ng-template #coverTemplate>
-    <img alt="example" src="{{ libro.portada }}" />
+    <img alt="example" src="{{ libro.portada }}"  (click)="showModal()"/>
   </ng-template>

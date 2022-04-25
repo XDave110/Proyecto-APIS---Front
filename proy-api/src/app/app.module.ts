@@ -26,6 +26,7 @@ import { CartComponent } from './cart/cart.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzDividerModule } from 'ng-zorro-antd/divider';
+import { NzModalModule } from 'ng-zorro-antd/modal';
 
 registerLocaleData(en);
 
@@ -54,7 +55,8 @@ registerLocaleData(en);
     NzCardModule,
     NgxPaginationModule,
     NzGridModule,
-    NzDividerModule
+    NzDividerModule,
+    NzModalModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
