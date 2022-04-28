@@ -21,7 +21,7 @@ export class FilterPipe implements PipeTransform {
       for (const genero of libro.generos) {
         if (genero === filterString) {
           libros.push(libro);
-        }
+        } 
       }
     }
 

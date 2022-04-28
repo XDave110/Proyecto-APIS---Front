@@ -60,7 +60,8 @@ registerLocaleData(en);
     NzGridModule,
     NzDividerModule,
     NzModalModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]

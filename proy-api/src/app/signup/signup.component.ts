@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { EmailService } from '../service/email.service';
 
 @Component({
   selector: 'app-signup',
@@ -16,11 +17,28 @@ export class SignupComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
-      console.log(this.validateForm.value.email); // Correo
-      console.log(this.validateForm.value.password); // Contraseña
-      console.log(this.validateForm.value.checkPassword); // Confirmar contraseña
-      console.log(this.validateForm.value.nickname); // Nombre de usuario
+      
+      this.emailService.esDesechable(this.validateForm.value.email).subscribe((res: any) => { 
+        let flag = res.disposable 
+      
+        if (flag) {
+          // Si el correo es desechable pedimos el correo de nuevo
+          this.validateForm.controls.email.reset();
+          this.submitForm();
+        } else {
+          // Se registra el usuario
+          console.log("Enviando formulario");
+          console.log(this.validateForm.value.email);
+          console.log(this.validateForm.value.password);
+          console.log(this.validateForm.value.checkPassword);
+          console.log(this.validateForm.value.nickname);
+        }
+      
+      });
+
+
+      
+
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -49,7 +67,7 @@ export class SignupComponent implements OnInit {
     e.preventDefault();
   }
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private emailService: EmailService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
