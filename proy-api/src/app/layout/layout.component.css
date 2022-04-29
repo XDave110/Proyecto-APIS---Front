@@ -15,8 +15,14 @@ nz-breadcrumb {
   margin: 16px 0;
 }
 
+nz-layout {
+ position: relative;
+  min-height: 100%;
+}
+
 nz-content {
   padding:  0 0 0 0;
+  background-color: white;
 }
 
 nz-footer {
@@ -26,5 +32,17 @@ nz-footer {
 .inner-content {
   background: #fff;
   padding: 24px;
+  margin-bottom: 50px;
   min-height: 280px;
+  height: 100%;
+}
+
+nz-footer {
+    background-color: rgb(0, 0, 0);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    color: white;
+    font-size: .9rem;
 }

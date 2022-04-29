@@ -7,7 +7,7 @@
                         <th>Portada</th>
                         <th>ISBN</th>
                         <th>Titulo</th>
-                        <th>Descripcion</th>
+                        <!-- <th>Descripcion</th> -->
                         <th>Precio</th>
                         <th>Cantidad</th>
                         <th>Total</th>
@@ -19,8 +19,8 @@
                         <td><img class="portada" src="{{libro.portada}}" alt=""></td>
                         <td>{{libro.isbn}}</td>
                         <td>{{libro.nombre}}</td>
-                        <td>{{libro.descripcion}}</td>
-                        <td>{{libro.precio}}</td>
+                        <!-- <td>{{libro.descripcion}}</td> -->
+                        <td>${{libro.precio}}</td>
                         <td><select  id="cantidad"  (change)="obtenerCantidad($any($event.target), $any(libro))">
                             <option selected disabled hidden> {{ libro.cantidad }}</option>
                             <option [value]="1">1</option>
@@ -34,7 +34,7 @@
                             <option [value]="9">9</option>
                             <option [value]="10">10</option>
                         </select></td>
-                        <td>{{ libro.precio * libro.cantidad }}</td>
+                        <td>${{ libro.precio * libro.cantidad }}</td>
                         <td>
                             <button (click)="eliminarLibroDelCarro(libro)"    class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
                         </td>
@@ -45,14 +45,14 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+                        <!-- <td></td> -->
                         <td></td>
                         <td></td>
                         <td class="subtotal">Subtotal: ${{ obtenerTotal() }}</td>
                     </tr>
                     <tr>
                         <td></td>
-                        <td></td>
+                        <!-- <td></td> -->
                         <td></td>
                         <td></td>
                         <td></td>
