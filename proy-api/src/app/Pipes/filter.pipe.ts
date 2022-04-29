@@ -11,6 +11,8 @@ export class FilterPipe implements PipeTransform {
     }
 
     const libros = [];
+
+    console.log(value);
     for (const libro of value) {
       if (libro.nombre === filterString 
         || libro.autor === filterString 

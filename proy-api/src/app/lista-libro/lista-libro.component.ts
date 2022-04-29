@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Libro } from './../libro/libro.model';
 
+
 @Component({
   selector: 'app-lista-libro',
   templateUrl: './lista-libro.component.html',
@@ -8,7 +9,7 @@ import { Libro } from './../libro/libro.model';
 })
 
 export class ListaLibroComponent implements OnInit {
-  public pagina: number;
+  public pagina: number = 1;
   filteredString: string = '';
 
   libros: Libro[];
