@@ -1,0 +1,31 @@
+<head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<div class="container" *ngIf="isVisible">
+    <h2 class="text-center mb-5">Contáctanos, envianos un correo electrónico</h2>
+    <div class="row">
+    <div class="col-md-6 offset-md-3">
+    <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)"><div class="form-group">
+    <label for="Email">Correo electrónico</label>
+    <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico"formControlName="Email">
+    <small id="emailHelp" class="form-text text-muted">No compartiremos tus datos con nadie.</small>
+    </div>
+    <div class="form-group">
+    <label for="fullname">Nombre completo</label>
+    <input type="text" class="form-control" name="Fullname" placeholder="Nombre completo" formControlName="Fullname">
+    </div>
+    <div class="form-group">
+    <label for="comment">Comentario</label>
+    <textarea class="form-control" formControlName="Comment" name="Comment">
+    </textarea>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Enviar</button>
+    </form>
+    </div>
+    </div>
+    </div>
+
+
+

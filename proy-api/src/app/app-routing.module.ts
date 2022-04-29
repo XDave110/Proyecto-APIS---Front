@@ -4,8 +4,13 @@ import { ListaLibroComponent } from './lista-libro/lista-libro.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 const routes: Routes = [
+  {
+    path:'contact',
+    component: ContactFormComponent
+  },
   {
     path:"login", 
     component:LoginComponent

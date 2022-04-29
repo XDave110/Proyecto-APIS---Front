@@ -29,6 +29,8 @@ import { NzDividerModule } from 'ng-zorro-antd/divider';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './Pipes/filter.pipe';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactService } from './service/contact.service';
 
 registerLocaleData(en);
 
@@ -41,7 +43,8 @@ registerLocaleData(en);
     LibroComponent,
     ListaLibroComponent,
     CartComponent,
-    FilterPipe
+    FilterPipe,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -61,9 +64,9 @@ registerLocaleData(en);
     NzDividerModule,
     NzModalModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [ ContactService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
