@@ -4,13 +4,13 @@
 </head>
 
 <div class="container" *ngIf="isVisible">
-    <h2 class="text-center mb-5">Contáctanos, envianos un correo electrónico</h2>
+    <h2 class="text-center mb-5">Contáctenos</h2>
     <div class="row">
     <div class="col-md-6 offset-md-3">
     <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)"><div class="form-group">
     <label for="Email">Correo electrónico</label>
     <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="Ingresa tu correo electrónico"formControlName="Email">
-    <small id="emailHelp" class="form-text text-muted">No compartiremos tus datos con nadie.</small>
+    <small id="emailHelp" class="form-text text-muted" >No compartiremos tus datos con nadie.</small>
     </div>
     <div class="form-group">
     <label for="fullname">Nombre completo</label>
@@ -25,7 +25,7 @@
     </form>
     </div>
     </div>
-    </div>
+</div>
 
 
 
