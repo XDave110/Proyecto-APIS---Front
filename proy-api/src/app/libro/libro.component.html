@@ -1,16 +1,22 @@
 <nz-card  nzHoverable style="width:240px" [nzCover]="coverTemplate">
-    <nz-card-meta nzTitle="{{ libro.nombre }}" nzDescription=" {{ devolverDescripcion() }}"></nz-card-meta>
+  
+    <nz-card-meta nzTitle="{{ libro.nombre }}" nzDescription="{{libro.autor}}" >   
+    </nz-card-meta>
+    <div>
+      <h5> {{'$'+libro.precio}}</h5>
+    </div>
     <button class="btn btn-primary" (click)="agregarAlCarro(libro)" >Agregar al carro</button>
     <nz-modal [(nzVisible)]="isVisible" nzTitle="Información" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
-      <ng-container *nzModalContent>
-        <img class="imagenportada" src="{{ libro.portada }}" alt="">
-        <p> {{ libro.nombre }}</p>
-        <p>{{ libro.autor }}</p>
+      <ng-container *nzModalContent class="contenedor">
+        <img style="width: 220px; height: 300px;" class="imagenportada" src="{{ libro.portada }}" alt="">
+        <h1 class="titulo-libro"> {{ libro.nombre }}</h1>
+        <h4>Por {{ libro.autor }}  (Autor)</h4>
+        <h3>Sinopsis</h3>
         <p>{{ libro.descripcion }}</p>
-        <p>{{ libro.isbn}}</p>
+        <h4> <span class="titulo-isbn">ISBN</span> {{ libro.isbn}}</h4>
       </ng-container>
     </nz-modal>
   </nz-card>
   <ng-template #coverTemplate>
-    <img alt="example" src="{{ libro.portada }}"  (click)="showModal()"/>
+    <img style="width: 239px; height: 320px;" alt="example" src="{{ libro.portada }}"  (click)="showModal()"/>
   </ng-template>

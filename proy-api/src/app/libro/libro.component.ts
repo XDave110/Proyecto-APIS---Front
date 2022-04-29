@@ -19,10 +19,6 @@ export class LibroComponent implements OnInit {
     
   }
 
-  devolverDescripcion(): string {
-    return this.libro.autor + "\n" + "$" + this.libro.precio;
-  }
-
   agregarAlCarro(libro: any) {
     this.cartService.verificarSiExiste(libro);
   }
