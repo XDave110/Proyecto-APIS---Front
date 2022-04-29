@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class CartService {
   public cuenta = this.cuentaLibros.asObservable();
   
 
-  constructor() { 
+  constructor(private notification: NzNotificationService) { 
     this.revisarLocalStorage();
   }
 
@@ -70,7 +71,7 @@ export class CartService {
     if (esIgual) {
       let index = this.cartListaLibros.indexOf(libroEncontrado);
       if (libroEncontrado.cantidad === 10) {
-        alert("Máxima cantidad de este libro alcanzada!")
+        this.createNotification('warning', "Cantidad máxima alcanzada", "Has alcanzado el máximo de compras por libro (10). Revisa tu carrito!")
       } else {
         this.cartListaLibros[index].cantidad += 1;
       }
@@ -94,7 +95,7 @@ export class CartService {
   }
 
   realizarPago() {
-    alert(`Se ha realizado la compra por: $${this.obtenerPrecioTotal()}` )
+    this.createNotification('success', "Compra exitosa", `Tu compra se ha realizado correctamente por un total de $${this.obtenerPrecioTotal()}` )
     this.eliminarTodo();
     this.obtenerCantidadLibros();
     localStorage.setItem('carrito', JSON.stringify(this.cartListaLibros));
@@ -108,5 +109,13 @@ export class CartService {
       this.listaLibros.next(this.cartListaLibros);
       this.obtenerCantidadLibros();
     }
+  }
+
+  createNotification(type: string, titulo: string, mensaje: string): void {
+    this.notification.create(
+      type,
+      titulo,
+      mensaje
+      );
   }
 }

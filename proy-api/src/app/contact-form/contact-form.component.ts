@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, Validators, NgForm } from '@angular/forms'
 import { Router, RouterModule } from '@angular/router';
 import { ContactService } from '../service/contact.service';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
 
 @Component({
   selector: 'app-contact-form',
@@ -13,7 +14,7 @@ export class ContactFormComponent implements OnInit {
   FormData: FormGroup;
   isVisible: boolean = true;
 
-  constructor(private builder: FormBuilder, private contact: ContactService, private router: Router) { }
+  constructor(private builder: FormBuilder, private contact: ContactService, private router: Router, private notification: NzNotificationService) { }
 
   ngOnInit(): void {
 
@@ -29,13 +30,20 @@ export class ContactFormComponent implements OnInit {
     this.contact.PostMessage(FormData)
     .subscribe(response => {
       // this.router.navigate(['/catalogo']);
-      alert("Tu correo ha sido enviado con éxito!");
+      this.createNotification('success', "Envío exitoso", "Tu correo se ha enviado exitosamente!")
     this.FormData.reset();
     }, error => {
-    console.warn(error.responseText)
-    console.log({ error })
-    alert('Tu correo no ha podido ser enviado');
+    console.log(error);
+    this.createNotification('error', "Envío fallido", "No se ha podido realizar la operación correctamente.")
     }) 
+  }
+
+  createNotification(type: string, titulo: string, mensaje: string): void {
+    this.notification.create(
+      type,
+      titulo,
+      mensaje
+      );
   }
 
 }

@@ -31,6 +31,7 @@ import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './Pipes/filter.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './service/contact.service';
+import { NzNotificationModule } from 'ng-zorro-antd/notification';
 
 registerLocaleData(en);
 
@@ -65,6 +66,7 @@ registerLocaleData(en);
     NzModalModule,
     FormsModule,
     HttpClientModule,
+    NzNotificationModule
   ],
   providers: [ ContactService, { provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
