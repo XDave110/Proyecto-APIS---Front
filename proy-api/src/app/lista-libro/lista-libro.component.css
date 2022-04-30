@@ -1,0 +1,12 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  .columnas {
+    justify-content: space-evenly;
+  }
+
+  .container {
+    margin-bottom: 3%;
+  }

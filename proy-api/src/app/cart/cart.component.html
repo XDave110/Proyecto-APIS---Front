@@ -1,0 +1,88 @@
+<ng-container *ngIf="!estaVacioElCarro()">
+    <div class="card-table">
+        <div class="cart-book">
+            <table class="table table-responsive">
+                <thead>
+                    <tr>
+                        <th>Portada</th>
+                        <th>ISBN</th>
+                        <th>Titulo</th>
+                        <!-- <th>Descripcion</th> -->
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let libro of libros  | paginate: { itemsPerPage: 10, currentPage: pagina }">
+                    <tr>
+                        <td><img class="portada" src="{{libro.portada}}" alt=""></td>
+                        <td>{{libro.isbn}}</td>
+                        <td>{{libro.nombre}}</td>
+                        <!-- <td>{{libro.descripcion}}</td> -->
+                        <td>${{libro.precio}}</td>
+                        <td><select  id="cantidad"  (change)="obtenerCantidad($any($event.target), $any(libro))">
+                            <option selected disabled hidden> {{ libro.cantidad }}</option>
+                            <option [value]="1">1</option>
+                            <option [value]="2">2</option>
+                            <option [value]="3">3</option>
+                            <option [value]="4">4</option>
+                            <option [value]="5">5</option>
+                            <option [value]="6">6</option>
+                            <option [value]="7">7</option>
+                            <option [value]="8">8</option>
+                            <option [value]="9">9</option>
+                            <option [value]="10">10</option>
+                        </select></td>
+                        <td>${{ libro.precio * libro.cantidad }}</td>
+                        <td>
+                            <button (click)="eliminarLibroDelCarro(libro)"    class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                        </td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td></td>
+                        <td class="subtotal">Subtotal: ${{ obtenerTotal() }}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <!-- <td></td> -->
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <button class="btn btn-danger" (click)="vaciarCarro()">Vaciar carrito</button></td>
+                            <td>
+                            <button class="btn btn-primary" (click)="realizarPago()">Proceder a pago</button></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+    <div class="pagination">
+        <pagination-controls (pageChange)="pagina = $event" previousLabel="Anterior"
+    nextLabel="Siguiente"></pagination-controls>
+    </div>    
+</ng-container>
+
+
+
+<ng-container *ngIf="estaVacioElCarro()"> 
+    <div class="container">
+        <div class="card">
+            <h5 class="card-title">Mi carrito</h5>
+        </div>
+        <div class="center">
+            <img src="http://vicworldwide.com/img/download.png" alt="">
+            <h4>Tu carrito está vacio!</h4>
+            <h6>Agrega libros a tu estante!</h6>
+            <button [routerLink]="['/catalogo']" class="btn btn-primary">Compra ahora</button>
+        </div>
+    </div>
+</ng-container>

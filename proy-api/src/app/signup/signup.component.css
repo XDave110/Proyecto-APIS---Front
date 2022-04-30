@@ -1,0 +1,130 @@
+nz-form-item{
+	margin: 0 ;	
+}
+
+h1 {
+	font-weight: bold ;
+	margin: 0;
+}
+
+h2 {
+	text-align: center ;
+}
+
+p {
+	font-size: 14px ;
+	font-weight: 450 ;
+	line-height: 20px ;
+	letter-spacing: 0.5px ;
+	margin: 20px 0 30px ;
+}
+
+span {
+	font-size: 12px !important;
+}
+
+a {
+	color: #333;
+	font-size: 14px;
+	text-decoration: none;
+	margin: 15px 0;
+}
+.signup-form-button{
+	margin: 12px;
+  padding: 10px  35px 10px  35px;
+}
+button  {
+	border-radius: 20px ;
+	border: 1px solid #57619c ;
+	background-color: #57619c ;
+	color: #FFFFFF ;
+	font-size: 12px ;
+	font-weight: bold ;
+	padding: 12px 45px ;
+	letter-spacing: 1px ;
+	text-transform: uppercase ;
+	transition: transform 80ms ease-in ;
+}
+
+button:hover {
+	transform: scale(0.95) ;
+	background-color: #57619c ;
+	border: 1px solid #57619c ;
+}
+
+button:focus {
+	outline: none ;
+}
+button.ghost {
+	background-color: transparent ;
+	border-color: #FFFFFF ;
+	display: none;
+}
+
+
+form {
+	background-color: #FFFFFF;
+	display: flex ;
+	align-items: center ;
+	justify-content: center ;
+	flex-direction: column ;
+	padding: 0 50px ;
+	height: 100% ;
+	text-align: center ;
+}
+
+input {
+	background-color: #eee;
+	border: none ;
+	padding: 12px 15px ;
+	margin: 8px 0 ;
+	width: 100% ;
+}
+
+.container {
+	background-color: #fff;
+	border-radius: 10px ;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22) ;
+	position: relative ;
+	overflow: hidden;
+	width: 768px ;
+	max-width: 100% ;
+	min-height: 480px ;
+	margin-bottom: 60px;
+	margin-top: 25px;
+}
+
+.form-container {
+	position: absolute ;
+	top: 0 ;
+	height: 100% ;
+}
+
+.overlay-container {
+	position: absolute ;
+	left: 50% ;
+	width: 50% ;
+	height: 100% ;
+	background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #57619c, #b6a8cf);
+  	color: #FFFFFF ;
+}
+.titulo2{
+	color: #eee;
+}
+.overlay{
+	margin: 30% 10% 0 10% !important;
+  	height: 100% !important;
+	
+}
+
+.frase {
+	font-size: 1rem;
+}
+
+
+
+
+

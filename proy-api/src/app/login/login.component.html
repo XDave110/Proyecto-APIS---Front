@@ -1,0 +1,56 @@
+<div class="container" id="container">
+ 
+
+    <div class="form-container sign-up-container">
+      <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+        <h1>Iniciar Sesión</h1>
+        <div class="social-container"></div>
+        <span>Bienvenido de nuevo</span>
+        
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor ingresa tu usuario!">
+    
+            <nz-input-group class="input-usuario">
+              <div class="control">
+                <input type="text" nz-input formControlName="userName" placeholder=" Usuario"  autocomplete="off"/>
+              </div>
+            </nz-input-group>
+          </nz-form-control>
+       </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Por favor ingresa tu contraseña!">
+            <nz-input-group>
+              <input  type="password" nz-input formControlName="password" placeholder=" Contraseña" autocomplete="off"/>
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+          
+          <nz-form-item >
+            <nz-form-control >
+              <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Inicia sesión</button>
+         
+            </nz-form-control>
+          </nz-form-item>
+      </form>
+
+    </div>
+
+
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1 class="titulo2">Hola, amigo!</h1>
+          <p>Registrate y empieza tu aventura con nosotros. </p>
+          <button [routerLink]="['/signup']" rel="no-refresh" class="registrate" class="ghost" id="signIn" >Registrate</button>
+     
+        </div>
+        
+      </div>
+    </div>
+   
+
+  </div>
+
+
+
+
