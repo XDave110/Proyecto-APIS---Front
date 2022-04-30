@@ -1,0 +1,7 @@
+<h2>Mangas del momento</h2>
+<p>Explora los mangas que son tendencia ahora mismo</p>
+<div class="columnas"  nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32 }">
+    <ul  *ngFor="let manga of mangas ">
+        <div nz-col class="gutter-row" [nzSpan]="6"><div class="inner-box"></div><app-manga [manga]="manga"></app-manga></div>
+    </ul>
+</div>

@@ -5,8 +5,13 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ListaMangasComponent } from './lista-mangas/lista-mangas.component';
 
 const routes: Routes = [
+  {
+    path:'trending',
+    component: ListaMangasComponent
+  },
   {
     path:'contact',
     component: ContactFormComponent

@@ -32,6 +32,8 @@ import { FilterPipe } from './Pipes/filter.pipe';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactService } from './service/contact.service';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
+import { MangaComponent } from './manga/manga.component';
+import { ListaMangasComponent } from './lista-mangas/lista-mangas.component';
 
 registerLocaleData(en);
 
@@ -45,7 +47,9 @@ registerLocaleData(en);
     ListaLibroComponent,
     CartComponent,
     FilterPipe,
-    ContactFormComponent
+    ContactFormComponent,
+    MangaComponent,
+    ListaMangasComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<nz-card  nzHoverable style="width:300px" [nzCover]="coverTemplate">
+    <nz-card-meta nzTitle="{{ manga.titulo }}" nzDescription="Estatus: {{manga.status}}" >   
+    </nz-card-meta>
+    <nz-modal [(nzVisible)]="isVisible" nzTitle="Información" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
+      <ng-container *nzModalContent class="contenedor">
+        <img style="width: 220px; height: 300px;" class="imagenportada" src="{{ manga.poster }}" alt="">
+        <h1 class="titulo-libro"> {{ manga.titulo }}</h1>
+        <h4>Estatus: {{manga.status}}</h4>
+        <h3>Sinopsis</h3>
+        <p>{{ manga.descripcion }}</p>
+      </ng-container>
+    </nz-modal>
+  </nz-card>
+  <ng-template #coverTemplate>
+    <img style="width: 299px; height: 320px;" alt="example" src="{{ manga.poster }}"  (click)="showModal()"/>
+  </ng-template>
