@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
+import { environment } from 'src/environments/environment';
 import { EmailService } from '../service/email.service';
+import { FraseApiService } from '../service/frase-api.service';
 
 @Component({
   selector: 'app-signup',
@@ -9,11 +11,15 @@ import { EmailService } from '../service/email.service';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  
+  frase: string = '';
   validateForm!: FormGroup;
   captchaTooltipIcon: NzFormTooltipIcon = {
     type: 'info-circle',
     theme: 'twotone'
   };
+
+  
 
   submitForm(): void {
     if (this.validateForm.valid) {
@@ -67,7 +73,9 @@ export class SignupComponent implements OnInit {
     e.preventDefault();
   }
 
-  constructor(private fb: FormBuilder, private emailService: EmailService) {}
+  constructor(private fb: FormBuilder, private emailService: EmailService, private fraseService: FraseApiService) {
+    this.obtenerFrase();
+  }
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
@@ -76,5 +84,13 @@ export class SignupComponent implements OnInit {
       checkPassword: [null, [Validators.required, this.confirmationValidator]],
       nickname: [null, [Validators.required]]
     });
+  }
+
+
+  obtenerFrase() {
+    this.fraseService.conectarAPI().subscribe((res: any) => {
+      this.frase = res[0].fact;
+      console.log(this.frase);
+    })
   }
 }
