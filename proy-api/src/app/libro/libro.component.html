@@ -5,7 +5,7 @@
     <div>
       <h5> {{'$'+libro.precio}}</h5>
     </div>
-    <button class="btn btn-primary" (click)="agregarAlCarro(libro)" >Agregar al carro</button>
+    <button *ngIf="isLoggedIn" class="btn btn-primary" (click)="agregarAlCarro(libro)" >Agregar al carro</button>
     <nz-modal [(nzVisible)]="isVisible" nzTitle="Información" (nzOnCancel)="handleCancel()" (nzOnOk)="handleOk()">
       <ng-container *nzModalContent class="contenedor">
         <img style="width: 220px; height: 300px;" class="imagenportada" src="{{ libro.portada }}" alt="">
