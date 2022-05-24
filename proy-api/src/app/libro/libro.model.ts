@@ -7,7 +7,6 @@ export class Libro {
         public autor: string, 
         public descripcion: string, 
         public precio: number, 
-        public portada: string,
-        public generos: string[]) {
+        public portada: string) {
     }
 }

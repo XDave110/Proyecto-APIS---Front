@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NzFormTooltipIcon } from 'ng-zorro-antd/form';
-import { environment } from 'src/environments/environment';
+import { NzNotificationService } from 'ng-zorro-antd/notification';
+import { AuthenticationService } from '../service/authentication.service';
 import { EmailService } from '../service/email.service';
 import { FraseApiService } from '../service/frase-api.service';
 
@@ -33,13 +35,22 @@ export class SignupComponent implements OnInit {
           this.submitForm();
         } else {
           // Se registra el usuario
-          console.log("Enviando formulario");
-          console.log(this.validateForm.value.email);
-          console.log(this.validateForm.value.password);
-          console.log(this.validateForm.value.checkPassword);
-          console.log(this.validateForm.value.nickname);
+          let email = this.validateForm.value.email;
+          let password = this.validateForm.value.password;
+          let username = this.validateForm.value.nickname;
+          this.authenticationService.registrarUsuario(username, email, password ).subscribe(res => {
+            if (res.message === "Sign up successfully") {
+              this.createNotification("success", "Registro exitoso", "Te has registrado exitosamente. Porfavor inicia sesión.");
+              setTimeout(() => {
+                this.router.navigate(['/login']);  
+              }, 3000);
+            }
+          },
+          err => {
+            console.log(err.error.message);
+          })
+          this.validateForm.reset();
         }
-      
       });
 
 
@@ -73,7 +84,12 @@ export class SignupComponent implements OnInit {
     e.preventDefault();
   }
 
-  constructor(private fb: FormBuilder, private emailService: EmailService, private fraseService: FraseApiService) {
+  constructor(private fb: FormBuilder, 
+    private emailService: EmailService, 
+    private fraseService: FraseApiService, 
+    private authenticationService: AuthenticationService,
+    private notification: NzNotificationService,
+    private router: Router) {
     this.obtenerFrase();
   }
 
@@ -90,7 +106,14 @@ export class SignupComponent implements OnInit {
   obtenerFrase() {
     this.fraseService.conectarAPI().subscribe((res: any) => {
       this.frase = res[0].fact;
-      console.log(this.frase);
     })
+  }
+
+  createNotification(type: string, titulo: string, mensaje: string): void {
+    this.notification.create(
+      type,
+      titulo,
+      mensaje
+      );
   }
 }

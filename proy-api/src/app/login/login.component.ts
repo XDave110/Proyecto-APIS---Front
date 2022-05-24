@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthenticationService } from '../service/authentication.service';
+import { TokenStorageService } from '../service/token-storage.service';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +16,20 @@ export class LoginComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      console.log('submit', this.validateForm.value);
-      console.log(this.validateForm.value.userName); // Nombre que ingreso el usuario
-      console.log(this.validateForm.value.password); // Contraseña que ingreso el usuario
+      let email = this.validateForm.value.userName;
+      let password = this.validateForm.value.password;
+      this.authenticationService.iniciarSesion(email, password).subscribe(res => {
+        console.log(res);
+        if (res.message === "Login successfully") {
+          this.tokenService.guardarToken(res.token);
+          this.tokenService.mandarActualizacion(true);
+          this.router.navigate(['/catalogo']);
+        }
+      },
+      err => {
+        console.log(err.error.message);
+      })
+
     } else {
       Object.values(this.validateForm.controls).forEach(control => {
         if (control.invalid) {
@@ -27,7 +40,7 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  constructor(private fb: FormBuilder, public router: Router) {}
+  constructor(private fb: FormBuilder, public router: Router, private authenticationService: AuthenticationService, private tokenService: TokenStorageService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({

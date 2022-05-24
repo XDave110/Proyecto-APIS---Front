@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../service/cart.service';
+import { TokenStorageService } from '../service/token-storage.service';
 import { Libro } from './libro.model';
 
 @Component({
@@ -11,12 +12,17 @@ export class LibroComponent implements OnInit {
 
   @Input() libro: Libro;
   isVisible = false;
+  isLoggedIn = false;
 
-  constructor(private cartService: CartService) { 
+  constructor(private cartService: CartService, private tokenService: TokenStorageService) { 
   }
 
   ngOnInit(): void {
-    
+    if (this.tokenService.obtenerToken()) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 
   agregarAlCarro(libro: any) {
